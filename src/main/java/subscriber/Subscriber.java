@@ -16,4 +16,8 @@ public class Subscriber {
     public void subscribe(String topic) {
         MessageBroker.getInstance().subscribe(topic, this);
     }
+
+    public void unsubscribe(String topic) {
+        MessageBroker.getInstance().unsubscribe(topic, this);
+    }
 }

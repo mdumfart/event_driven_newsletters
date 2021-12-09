@@ -4,12 +4,9 @@ import subscriber.Subscriber;
 
 public class Runner {
     public static void main(String[] args) {
-        MessageBroker broker = new MessageBroker();
-
         Publisher sportsPublisher = new Publisher("sports");
         Publisher financePublisher = new Publisher("finance");
         Publisher weatherPublisher = new Publisher("weather");
-
 
         Subscriber sub1 = new Subscriber("sub1");
         Subscriber sub2 = new Subscriber("sub2");
@@ -34,5 +31,12 @@ public class Runner {
 
         // Publish
         sportsPublisher.publish("This is a sports newsletter");
+        weatherPublisher.publish("This is a weather newsletter");
+        financePublisher.publish("This is a finance newsletter");
+
+        // Unsubscribe
+        sub1.unsubscribe("sports");
+
+        sportsPublisher.publish("This is a second sports newsletter");
     }
 }
